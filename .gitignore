@@ -2,7 +2,7 @@
 *.cache/
 *.hw/
 *.ip_user_files/
-*.sim/
+#*.sim/
 *.runs/
 *.gen/
 *.log
