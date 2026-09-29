@@ -9,6 +9,7 @@ directory = r"..\sv\fpga-twap-engine.sim\sim_1\behav\xsim"
 os.makedirs(directory, exist_ok=True)
 
 save_file_to = os.path.join(directory, "twap_input_data.txt")
+python_file_path = "twap_input_data.txt" #a copy of the .txt file in a tracked in git folder
 
 with open(save_file_to, "w") as f:
     for i in range(num_samples):
@@ -17,6 +18,16 @@ with open(save_file_to, "w") as f:
 
         valid = 1 if random.random() > 0.45 else 0
         
+        f.write(f"{valid} {price_hex}\n")
+
+
+with open(python_file_path, "w") as f:
+    for i in range(num_samples):
+        price = int((i + 50) * 100)
+        price_hex = f"{price:08X}"
+
+        valid = 1 if random.random() > 0.45 else 0
+
         f.write(f"{valid} {price_hex}\n")
 
 print("data file generated and saved to vivado project sim_1/behav/xsim folder")
