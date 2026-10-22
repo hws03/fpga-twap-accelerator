@@ -11,6 +11,7 @@
 *.backup
 .Xil/
 *.xil/
+src/
 
 #other
 vhdl/
